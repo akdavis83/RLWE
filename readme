@@ -1,0 +1,39 @@
+# Key Points
+RLWE-Ring Learning With Errors (RLWE) is a popular post-quantum cryptography scheme that uses a ring learning with errors (RLWE) model to generate public and private keys. The scheme is based on the assumption that the underlying ring is a polynomial ring over a finite field, and the public key is a polynomial of degree n-1, where n is a power of 2. The private key is a polynomial of degree n, and the scheme is secure against adaptive chosen-ciphertext attacks.
+
+This Javascript version is a preliminary version of the original Go implementation found here: https://github.com/TSignalproject/rlwe/blob/master/rlwe.go
+
+FFT Implementation:
+
+The FFT functions (fftForward and fftBackward) implement the twisted FFT.
+
+Modular Arithmetic:
+
+All operations (addition, subtraction, multiplication) are performed modulo q.
+
+Key Pair Generation:
+
+A private key is a random polynomial.
+The public key is the FFT-transformed version of the private key.
+Key Encapsulation:
+
+A random polynomial is used to generate the ciphertext and shared secret.
+
+Key Decapsulation:
+
+The receiver uses their private key to recover the shared secret from the ciphertext.
+
+# Next Steps
+Parameter Validation:
+
+Ensure the parameters (n, q, etc.) meet security requirements for RLWE.
+
+Optimization:
+
+Use efficient libraries like big-integer for handling large integers if needed.
+Testing:
+
+Verify correctness with test vectors or by comparing with the original Go implementation.
+Security:
+
+Implement constant-time operations to prevent timing attacks.
